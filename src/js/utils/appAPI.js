@@ -10,7 +10,7 @@ module.exports = {
 	},
 
 	getContacts: function() {
-		this.firebaseRef = new Firebase('https://contactlist-534c1.firebaseio.com/')
+		this.firebaseRef = new Firebase('https://contactlist-534c1.firebaseio.com/');
 		this.firebaseRef.once("value", function(snapshot) {
 			var contacts = [];
 			snapshot.forEach(function(childSnapshot){
@@ -24,5 +24,10 @@ module.exports = {
 				AppActions.receiveContacts(contacts);
 			});
 		});
+	},
+
+	removeContact: function(contactId) {
+		this.firebaseRef = new Firebase('https://contactlist-534c1.firebaseio.com/'+contactId);
+		this.firebaseRef.remove();
 	}
 }

@@ -6,7 +6,7 @@ var Contact = require('./Contact.js')
 var ContactList = React.createClass({
 	render: function(){
 		return(
-			<div>
+			<div className="contact-list">
                 <h3>Contacts</h3>
                 <table className="table table-striped">
                     <thead>

@@ -3,14 +3,14 @@ var AppActions = require('../actions/AppActions');
 
 module.exports = {
 	saveContact: function(contact) {
-		this.firebaseRef = new Firebase('https://contactlist-534c1.firebaseio.com/');
+		this.firebaseRef = new Firebase(yourFireBaseUrl);
 		this.firebaseRef.push({
 			contact: contact
 		});
 	},
 
 	getContacts: function() {
-		this.firebaseRef = new Firebase('https://contactlist-534c1.firebaseio.com/');
+		this.firebaseRef = new Firebase(yourFireBaseUrl);
 		this.firebaseRef.once("value", function(snapshot) {
 			var contacts = [];
 			snapshot.forEach(function(childSnapshot){
@@ -27,7 +27,19 @@ module.exports = {
 	},
 
 	removeContact: function(contactId) {
-		this.firebaseRef = new Firebase('https://contactlist-534c1.firebaseio.com/'+contactId);
+		this.firebaseRef = new Firebase(yourFireBaseUrl+contactId);
 		this.firebaseRef.remove();
+	},
+
+	updateContact: function(contact) {
+		var id = contact.id;
+		var updatedContact = {
+			name: contact.name,
+			phone: contact.phone,
+			email: contact.email
+		}
+
+		this.firebaseRef = new Firebase(yourFireBaseUrl+contact.id+'/contact');
+		this.firebaseRef.update(updatedContact);
 	}
 }

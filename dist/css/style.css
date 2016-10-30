@@ -5,3 +5,17 @@ body {
 .btn-remove {
     margin-left: 10px;
 }
+
+.contact-list {
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.contact-item{
+    transition: 0.3s;
+}
+
+
+.contact-item:hover {
+    background-color: white !important;
+}

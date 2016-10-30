@@ -1,5 +1,6 @@
 body {
     margin-top: 30px;
+    background: #f5f5f5;
 }
 
 .btn-remove {
@@ -8,14 +9,20 @@ body {
 
 .contact-list {
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: white;
 }
 
 .contact-item{
     transition: 0.3s;
+    background: #f8f8f8;
 }
 
 
 .contact-item:hover {
+    transform: scale(1.02);
+    background-color: #f5f5f5 !important;
+}
+
+.well {
     background-color: white !important;
 }
